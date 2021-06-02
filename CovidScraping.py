@@ -35,7 +35,7 @@ with open('data/COVID19Cases_geoRegion.csv', newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
     for row in spamreader:
         #print(', '.join(row))
-        if row[0] == '"FR"':
+        if row[0] == 'FR':
             #print(row)
             casesFR.append([row[1],row[2],row[3]])
 
@@ -56,7 +56,7 @@ vaccinsCH = {}
 with open('data/COVID19VaccDosesAdministered.csv', newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
     for row in spamreader:
-        if row[1] == '"CH"':
+        if row[1] == 'CH':
             vaccinsCH[row[0]] = row[4]
 
 
@@ -66,7 +66,7 @@ vaccinsCHList = []
 with open('data/COVID19FullyVaccPersons.csv', newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
     for row in spamreader:
-        if row[1] == '"CH"':
+        if row[1] == 'CH':
             vaccinsCHList.append([row[0], vaccinsCH[row[0]], (int(vaccinsCH[row[0]]) - int(row[4])), row[4]])
 
 
